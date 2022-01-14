@@ -1,5 +1,7 @@
+import SiteUnderConstruction from './Components/SiteUnderConstruction'
+
 function App() {
-	return <div>Here we go again.</div>
+	return <SiteUnderConstruction />
 }
 
 export default App

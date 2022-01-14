@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,400,500,700');
 
+/* VARIABLES */
+:root {
+	/* dark theme */
+	--dark-background-color: #282c35;
+	--dark-link-color: #bb72ec;
+	--dark-lightest-font-color: #fff;
+	--dark-light-font-color: #eeeeee;
+	--dark-middle-font-color: #d8d7d7;
+	--dark-category-item-color: #282c35;
+	--dark-category-background-color: #24272c;
+	--dark-category-border-color: rgb(56, 54, 54);
+	--dark-category-text-color: #d8d7d7;
+	--dark-category-highlight-border-color: #666;
+	--dark-category-highlight-text-color: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -20,5 +36,110 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 1.6rem;
-	background-color: #eceff1;
+	background-color: var(--dark-background-color);
+	color: var(--dark-middle-font-color);
+}
+
+/* SiteUnderConstruction */
+.site-under-construction-container {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.link {
+	text-decoration: none;
+	color: var(--dark-link-color);
+	cursor: pointer;
+}
+
+/* JUNK */
+.main-section-container {
+	margin: 0 auto;
+	height: calc(100vh - 8.2rem - 5rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 90rem;
+	padding-left: 6rem;
+	border: 1px solid red;
+}
+
+.main-section-container h1 {
+	font-size: 2.8rem;
+	font-weight: 300;
+	padding: 0;
+	margin: 0;
+}
+
+.blank {
+	color: #eceff1;
+	font-size: 6rem;
+}
+
+/* RUBBERBAND ANIMATION */
+.text {
+	display: flex;
+}
+
+a:link {
+	text-decoration: none;
+	color: black;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+
+.rubberBand {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-iteration-count: 1;
+	font-size: 8rem;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+.rubberBand.animated {
+	-webkit-animation-name: rubberBand;
+	animation-name: rubberBand;
+}
+
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
 }
