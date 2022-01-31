@@ -1,11 +1,19 @@
+import styled from 'styled-components'
+
+const Link = styled.a`
+	text-decoration: none;
+	color: ${props => props.theme.colors.linkColor};
+	cursor: pointer;
+`
+
 export default function SiteUnderConstruction() {
 	return (
-		<div className='site-under-construction-container'>
+		<div>
 			<h1>This site is currently under construction.</h1>
 			<p>For more information please email me:</p>
-			<a href='mailto:info@rick.brown.co.uk'>
+			<Link href='mailto:info@rick.brown.co.uk'>
 				<span className='link'>info@rick.brown.co.uk</span>
-			</a>
+			</Link>
 		</div>
 	)
 }
