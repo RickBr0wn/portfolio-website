@@ -29,25 +29,27 @@ const NavigationBar = styled.nav`
 	justify-content: space-between;
 `
 
-const NavigationItems = styled.a`
+const NavigationItems = styled.h4`
 	display: flex;
-	justify-content: space-between;
-	width: 40vw;
-	padding: 2rem;
+	justify-content: space-evenly;
+	width: 30vw;
+	padding: 3rem 0rem;
+	text-transform: uppercase;
 `
-
 const NavigationLogo = styled.div`
 	padding: 2rem;
 `
 
-const NavigationLink = styled.div``
+const NavigationLink = styled.div`
+	cursor: pointer;
+`
 
 const LayoutContainer = ({ children }) => (
 	<Layout>
 		<NavigationBar>
-			<NavigationLogo>RB</NavigationLogo>
+			<NavigationLogo>{''}</NavigationLogo>
 			<NavigationItems>
-				<NavigationLink>about</NavigationLink>
+				{/* <NavigationLink>about</NavigationLink> */}
 				<NavigationLink>blog</NavigationLink>
 				<NavigationLink>projects</NavigationLink>
 				<NavigationLink>contact me</NavigationLink>
@@ -55,9 +57,9 @@ const LayoutContainer = ({ children }) => (
 		</NavigationBar>
 		{children}
 		<footer>
-			<Link href='mailto:info@rick.brown.co.uk'>
+			{/* <Link href='mailto:info@rick.brown.co.uk'>
 				<span className='link'>info@rick.brown.co.uk</span>
-			</Link>
+			</Link> */}
 		</footer>
 	</Layout>
 )
