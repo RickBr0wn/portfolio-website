@@ -1,16 +1,16 @@
+import { Box, Container, Flex, Heading, Link, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { LayoutContent } from '../types'
+import '@fontsource/catamaran/900.css'
 
 const name = 'Rick Brown'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }: LayoutContent) {
 	return (
-		<div className={styles.container}>
+		<Container maxWidth={500}>
 			<Head>
 				<link rel='icon' href='/favicon.ico' />
 				<meta
@@ -27,26 +27,34 @@ export default function Layout({ children, home }: LayoutContent) {
 				<meta name='twitter:card' content='summary_large_image' />
 			</Head>
 			{home && (
-				<header className={styles.header}>
-					<Image
-						priority
-						src='/images/profile.png'
-						className={utilStyles.borderCircle}
-						height={144}
-						width={144}
-						alt={name}
-					/>
-					<h1 className={utilStyles.heading2Xl}>{name}</h1>
-				</header>
+				<Flex flexDir='column' align='center'>
+					<Box mt='96px'>
+						<Image
+							priority
+							src='/images/profile.png'
+							height={144}
+							width={144}
+							alt={name}
+						/>
+					</Box>
+
+					<Heading as='h1' size='4xl'>
+						{name}
+					</Heading>
+
+					<Text fontSize='2xl' fontWeight='light'>
+						web & iOS developer
+					</Text>
+				</Flex>
 			)}
-			<main>{children}</main>
+			<Box>{children}</Box>
 			{!home && (
-				<div className={styles.backToHome}>
-					<Link href='/'>
-						<a>← Back to home</a>
-					</Link>
+				<div>
+					<NextLink href='/'>
+						<Link>← Back to home</Link>
+					</NextLink>
 				</div>
 			)}
-		</div>
+		</Container>
 	)
 }

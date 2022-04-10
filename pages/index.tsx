@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
+// import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import Date from '../components/date'
 import { GetStaticProps } from 'next'
 import { AllPostData } from '../types'
+import { Box, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 
 export default function Home({ allPostsData }: AllPostData) {
 	return (
@@ -13,31 +14,33 @@ export default function Home({ allPostsData }: AllPostData) {
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
-			<section className={utilStyles.headingMd}>
-				<p>web developer</p>
-				<p>
+			{/* <section className={utilStyles.headingMd}> */}
+			<Box m='44px 0px' fontSize='1.1rem' lineHeight='1.5'>
+				<Text>
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero,
 					voluptatum repudiandae. Neque illo adipisci magnam rerum
 					exercitationem iusto. Numquam deleniti quia corrupti! Enim, quam saepe
 					laboriosam ex eos nisi consectetur?
-				</p>
-			</section>
-			<section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-				<h2 className={utilStyles.headingLg}>Blog</h2>
-				<ul className={utilStyles.list}>
+				</Text>
+			</Box>
+			<Box fontSize='1.1rem' lineHeight='1.5' pt={1}>
+				<Text fontSize='2xl' fontWeight='bold'>
+					Blog
+				</Text>
+				<UnorderedList mt={6} listStyleType='none' spacing={5}>
 					{allPostsData.map(({ id, date, title }) => (
-						<li className={utilStyles.listItem} key={id}>
-							<Link href={`/posts/${id}`}>
-								<a>{title}</a>
-							</Link>
+						<ListItem key={id} p='0px' m='0px'>
+							<NextLink href={`/posts/${id}`}>
+								<Link>{title}</Link>
+							</NextLink>
 							<br />
-							<small className={utilStyles.lightText}>
+							<Text color='#666' fontSize='sm'>
 								<Date dateString={date} />
-							</small>
-						</li>
+							</Text>
+						</ListItem>
 					))}
-				</ul>
-			</section>
+				</UnorderedList>
+			</Box>
 		</Layout>
 	)
 }
