@@ -7,9 +7,9 @@
 }
 
 .headingXl {
-	font-size: 2rem;
+	font-size: 3.2rem;
 	line-height: 1.3;
-	font-weight: 800;
+	font-weight: 200;
 	letter-spacing: -0.05rem;
 	margin: 1rem 0;
 }
@@ -49,4 +49,59 @@
 
 .lightText {
 	color: #666;
+	margin-bottom: 18px;
+	margin-top: -20px;
+}
+
+.postImage {
+	margin-bottom: 48px;
+	box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+}
+
+.container {
+	margin-bottom: 4rem;
+}
+
+.container ul {
+	list-style: none;
+	padding: 8px;
+}
+
+.container li {
+	margin-left: 1.2rem;
+}
+
+.container strong {
+	font-size: 18px;
+}
+
+.container pre code {
+	max-width: 96%;
+	background-color: rgb(16, 16, 16);
+	color: #f8f8f2;
+	border-radius: 0.6em;
+	padding: 36px 28px 15px;
+	margin: 40px auto;
+	width: 100%;
+	display: block;
+	position: relative;
+	font-size: 12px;
+	box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+	overflow-x: scroll;
+}
+
+.container pre code::before {
+	content: '';
+	background-image: url('../images/buttons.jpeg');
+	background-size: 100% 100%;
+	display: inline-block;
+	height: 12px;
+	width: 36px;
+	position: absolute;
+	top: 8px;
+	left: 7px;
+}
+
+.container pre code:target {
+	user-select: all;
 }

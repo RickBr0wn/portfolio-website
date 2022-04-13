@@ -1,4 +1,13 @@
-import { Box, Container, Flex, Heading, Link, Text } from '@chakra-ui/react'
+import {
+	Box,
+	Container,
+	Flex,
+	Heading,
+	Link,
+	Switch,
+	Text,
+	useColorMode
+} from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import NextLink from 'next/link'
@@ -9,6 +18,8 @@ const name = 'Rick Brown'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }: LayoutContent) {
+	const { toggleColorMode } = useColorMode()
+
 	return (
 		<Container maxWidth={500}>
 			<Head>
@@ -26,9 +37,10 @@ export default function Layout({ children, home }: LayoutContent) {
 				<meta name='og:title' content={siteTitle} />
 				<meta name='twitter:card' content='summary_large_image' />
 			</Head>
+			<Switch onChange={toggleColorMode} pos='absolute' right='8' top='3' />
 			{home && (
 				<Flex flexDir='column' align='center'>
-					<Box mt='96px'>
+					<Box mt='22px'>
 						<Image
 							priority
 							src='/images/profile.png'
@@ -42,18 +54,18 @@ export default function Layout({ children, home }: LayoutContent) {
 						{name}
 					</Heading>
 
-					<Text fontSize='2xl' fontWeight='light'>
+					<Text fontSize='2xl' opacity={0.4}>
 						web & iOS developer
 					</Text>
 				</Flex>
 			)}
 			<Box>{children}</Box>
 			{!home && (
-				<div>
+				<Box mb='2.4rem'>
 					<NextLink href='/'>
 						<Link>← Back to home</Link>
 					</NextLink>
-				</div>
+				</Box>
 			)}
 		</Container>
 	)
