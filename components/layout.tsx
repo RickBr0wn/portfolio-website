@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import {
 	Box,
 	Container,
@@ -38,9 +39,9 @@ export default function Layout({ children, home }: LayoutContent) {
 				<meta name='twitter:card' content='summary_large_image' />
 			</Head>
 			<Switch onChange={toggleColorMode} pos='absolute' right='8' top='3' />
-			{home && (
+			{home ? (
 				<Flex flexDir='column' align='center'>
-					<Box mt='22px'>
+					<Box mt='82px'>
 						<Image
 							priority
 							src='/images/profile.png'
@@ -50,23 +51,22 @@ export default function Layout({ children, home }: LayoutContent) {
 						/>
 					</Box>
 
-					<Heading as='h1' size='4xl'>
+					<Heading as='h1' size='4xl' mt={10}>
 						{name}
 					</Heading>
 
-					<Text fontSize='2xl' opacity={0.4}>
+					<Text fontSize='2xl' opacity={0.4} mb={10}>
 						web & iOS developer
 					</Text>
 				</Flex>
-			)}
-			<Box>{children}</Box>
-			{!home && (
+			) : (
 				<Box mb='2.4rem'>
 					<NextLink href='/'>
 						<Link>← Back to home</Link>
 					</NextLink>
 				</Box>
 			)}
+			<Box>{children}</Box>
 		</Container>
 	)
 }

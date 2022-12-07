@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostsData } from '../lib/posts'
@@ -25,13 +26,13 @@ export default function Home({ allPostsData }: AllPostData) {
 				<title>{siteTitle}</title>
 			</Head>
 
-			<Box m='18px 0px 28px 0px' lineHeight='1.5' textAlign='justify'>
-				<Text>
-					Hello. I'm a self taught developer and life-long learner based in the
-					South East of England. I enjoy turning complex problems into simple,
-					beautiful and intuitive user experiences. When I'm not pushing pixels,
-					you'll find me reading, cooking, gardening or walking in the beautiful
-					English countryside.
+			<Box lineHeight='1.5' textAlign='justify'>
+				{/* <Text>
+					Hello. I&apos;m a self taught developer and life-long learner based in
+					the South East of England. I enjoy turning complex problems into
+					simple, beautiful and intuitive user experiences. When I&apos;m not
+					pushing pixels, you&apos;ll find me reading, cooking, gardening or
+					walking in the beautiful English countryside.
 				</Text>
 			</Box>
 
@@ -44,7 +45,13 @@ export default function Home({ allPostsData }: AllPostData) {
 					</TabList>
 					<TabPanels>
 						<TabPanel>
-							<UnorderedList mt={6} listStyleType='none' spacing={5}>
+							<UnorderedList
+								mt={6}
+								listStyleType='none'
+								spacing={5}
+								// overflowY='scroll'
+								// height={200}
+							>
 								{allPostsData.map(({ id, date, title }) => (
 									<ListItem key={id} p='0px' m='0px'>
 										<NextLink href={`/posts/${id}`}>
@@ -65,9 +72,9 @@ export default function Home({ allPostsData }: AllPostData) {
 							<h1>Contact Me</h1>
 						</TabPanel>
 					</TabPanels>
-				</Tabs>
+				</Tabs> */}
 
-				{/* <Text fontSize='2xl' fontWeight='bold'>
+				<Text fontSize='2xl' fontWeight='bold'>
 					Blog
 				</Text>
 				<UnorderedList mt={6} listStyleType='none' spacing={5}>
@@ -82,7 +89,7 @@ export default function Home({ allPostsData }: AllPostData) {
 							</Text>
 						</ListItem>
 					))}
-				</UnorderedList> */}
+				</UnorderedList>
 			</Box>
 		</Layout>
 	)

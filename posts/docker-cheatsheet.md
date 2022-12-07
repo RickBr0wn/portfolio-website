@@ -22,8 +22,6 @@ List Docker images:
 docker images
 ```
 
-`dicker`
-
 Remove Docker image:
 
 ```bash
